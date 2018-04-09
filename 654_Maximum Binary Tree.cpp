@@ -34,10 +34,10 @@ public:
         if(begin == end)
             return(new node(nums[begin]));
         if(begin > end ) return NULL;
-        int index = begin+distance(nums.begin(),max_element(nums.begin()+begin,nums.begin()+end));
+        int index = distance(nums.begin(),max_element(nums.begin()+begin,nums.begin()+end+1));
         node* root = new node(nums[index]);
         root->left = _createtree(nums,begin,index-1);
         root->right = _createtree(nums,index+1,end);
-        return NULL;
+        return root;
     }
 };
