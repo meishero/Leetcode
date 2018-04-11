@@ -31,9 +31,11 @@ public:
 				if(lastindex[S[i] -'a']>end)
 					newend = lastindex[S[i] -'a'];
 			}
-			ret.push_back(newend);  //记录下标
+			ret.push_back(newend-begin+1);  //记录下标
             
-            begin = newend+1;   //重新赋值  进入下一个区段
+            begin = newend+1;   //重新赋值 下一个区段
+            if (begin>=S.length())   //这里发现一直AC不了  提示下面下标越界  想了下应该是最后一次循环 读取到脏数据了
+                break;
 			end = lastindex[S[begin]-'a'];   
 		}
 		return ret;
