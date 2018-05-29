@@ -1,6 +1,8 @@
 // https://leetcode.com/problems/keyboard-row/description/
 
 // 不知为何未AC  题目让我们检测哪个单词里面的所有字母不在一行的  没用到什么特别的方法
+
+//用VS调试 原来是 if条件后面有个；导致……
 class Solution {
 public:
     vector<string> findWords(vector<string>& words) {
@@ -19,7 +21,7 @@ public:
         {
             for(int i =0; i<x.size(); ++i)
             {
-                if(dict[x[0]] != dict[x[i]]);
+                if(dict[x[0]] != dict[x[i]])
                     break;
                 if(i == x.size()-1)
                     ret.push_back(x);
