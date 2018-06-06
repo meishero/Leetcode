@@ -9,15 +9,15 @@ class Solution {
 public:
 	void _check(vector<vector<int>>& rooms, int pos, unordered_set<int>& status)
 	{
+		status.insert(pos);
 		for (auto key : rooms[pos])
 		{
-				if (status.find(key) == status.end())
-				{
-					status.insert(key);
-					_check(rooms, key, status);
+			if (status.find(key) == status.end())
+			{
 
-				}
-			return;
+				_check(rooms, key, status);
+
+			}
 		}
 	}
 
